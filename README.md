@@ -1,1 +1,1 @@
-# ansible-roles-empty
+[![Build Status](https://travis-ci.org/ispasov/ansible-roles-empty.svg?branch=master)](https://travis-ci.org/ispasov/ansible-roles-empty)
