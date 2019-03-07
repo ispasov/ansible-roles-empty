@@ -2,3 +2,4 @@
 - name: debug
   debug:
     msg: "Hello world"
+  when: x.changed
