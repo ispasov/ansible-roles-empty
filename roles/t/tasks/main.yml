@@ -1,4 +1,4 @@
 ---
 - name: debug
-  debug:
+debug:
     msg: "Hello world"
