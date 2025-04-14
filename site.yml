@@ -1,22 +1,18 @@
 - hosts: nodes
   gather_facts: false
   tasks:
-    - name: hostname
-      command: hostname
-      register: hostname_result
-
-    - name: print hostname
+    - name: print hostname from cache
       debug:
         var: my_hostname
       when: my_hostname is defined
 
-    - name: remember fact
+    - name: hostname
+      command: hostname
+      register: hostname_result
+      when: my_hostname is not defined
+
+    - name: cache hostname
       set_fact:
         my_hostname: "{{ hostname_result.stdout }}"
         cacheable: true
-
-- hosts: localhost
-  tasks:
-    - name: print homedir
-      debug:
-        var: ansible_env.HOME
+      when: my_hostname is not defined
