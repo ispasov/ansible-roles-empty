@@ -16,3 +16,14 @@
         my_hostname: "{{ hostname_result.stdout }}"
         cacheable: true
       when: my_hostname is not defined
+
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: print customer
+      debug:
+        var: customer
+
+    - name: print number of VMs
+      debug:
+        var: vms_count
