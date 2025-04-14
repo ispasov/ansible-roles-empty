@@ -14,3 +14,9 @@
       set_fact:
         my_hostname: "{{ hostname_result.stdout }}"
         cacheable: true
+
+- hosts: localhost
+  tasks:
+    - name: print homedir
+      debug:
+        var: ansible_env.HOME
