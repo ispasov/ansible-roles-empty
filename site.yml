@@ -1,0 +1,16 @@
+- hosts: nodes
+  gather_facts: false
+  tasks:
+    - name: hostname
+      command: hostname
+      register: hostname_result
+
+    - name: print hostname
+      debug:
+        var: my_hostname
+      when: my_hostname is defined
+
+    - name: remember fact
+      set_fact:
+        my_hostname: "{{ hostname_result.stdout }}"
+        cacheable: true
